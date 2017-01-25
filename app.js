@@ -5,6 +5,7 @@
 const koa = require('koa');
 const Router = require('koa-router');
 const Pug = require('koa-pug');
+const serve = require('koa-static');
 
 // Controllers
 
@@ -24,6 +25,7 @@ const pug = new Pug({
 });
 pug.use(app);
 
+app.use(serve(__dirname + '/public'));
 app.use(router.routes());
 app.use(router.allowedMethods());
 

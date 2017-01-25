@@ -10,5 +10,9 @@
     "koa": "^1.2.4",
     "koa-pug": "^3.0.0-1",
     "koa-router": "^5.4.0 "
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
   }
 }
