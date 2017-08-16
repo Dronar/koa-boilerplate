@@ -15,7 +15,7 @@ const homeController = require('./controllers/home.js');
 
 const isDebug = process.env === 'development';
 
-const app = koa();
+const app = new koa();
 const router = new Router();
 
 const pug = new Pug({
@@ -31,16 +31,9 @@ app.use(router.allowedMethods());
 
 // Error handling
 
-app.use(function *(next) {
-  try {
-    yield next;
-  } catch (err) {
-    this.type = 'json';
-    this.status = err.status || 500;
-    this.body = {error: '500 Error :('};
-    this.app.emit('error', err, this);
-  }
-});
+app.on('error', err =>
+  console.error('server error', err)
+);
 
 // Routing
 

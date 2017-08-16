@@ -1,5 +1,5 @@
 'use strict';
 
-exports.index = function *(next) {
-  this.render('home/index.pug');
+exports.index = (ctx) => {
+  ctx.render('home/index.pug');
 };
